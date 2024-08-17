@@ -648,17 +648,7 @@
                             </a>
                         </li>
                     </ul>
-                    <select class="form-select form-select-sm bg-transparent" name="store-language">
-                        <option value="english" selected>English</option>
-                        <option value="german">German</option>
-                        <option value="french">French</option>
-                        <option value="swedish">Swedish</option>
-                    </select>
-                    <select class="form-select form-select-sm bg-transparent" name="store-currency">
-                        <option value="usd" selected>$ USD</option>
-                        <option value="gbp">£ GBP</option>
-                        <option value="eur">€ EURO</option>
-                    </select>
+                   <a href="{{route('logout')}}">Log out</a>
                 </div>
             </div>
         </div>
@@ -698,14 +688,27 @@
                     </form><!-- /.header-search -->
 
                     <div class="header-tools d-flex align-items-center">
+                        @if(Auth::check())
                         <div class="header-tools__item hover-container">
-                            <a class="header-tools__item js-open-aside" href="#" data-aside="customerForms">
+                            <a class="header-tools__item " href="{{route('admin')}}" data-aside="customerForms">
                                 <svg class="d-block" width="20" height="20" viewBox="0 0 20 20"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <use href="#icon_user" />
                                 </svg>
-                            </a>
+                                {{Auth::user()->name}}</a>
                         </div>
+                        @else
+                        <div class="header-tools__item hover-container">
+                            <a class="header-tools__item " href="{{route('login')}}" data-aside="customerForms">
+                                <svg class="d-block" width="20" height="20" viewBox="0 0 20 20"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="#icon_user" />
+                                </svg>
+                                Login</a>
+                        </div>
+
+                        @endif
+                        
 
                         <a class="header-tools__item" href="">
                             <svg width="16" height="16" viewBox="0 0 20 20" fill="none"

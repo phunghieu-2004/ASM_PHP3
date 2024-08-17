@@ -22,7 +22,9 @@
         @include('admin.layouts.partials.topbar')
 
         <div class="main_content_iner overly_inner ">
-            <div class="container-fluid p-0 ">
+            <div class="container-fluid p-0 "style="
+            margin-bottom: 100px;
+        ">
 
                 @yield('content')
 

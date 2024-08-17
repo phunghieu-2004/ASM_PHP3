@@ -12,7 +12,7 @@
             <div class="swiper-container">
               <div class="swiper-wrapper">
                 <div class="swiper-slide product-single__image-item" style="margin-top: 100px;">
-                  <img loading="lazy" class="h-auto" src="{{ asset('theme/assets/client/images/home/demo11/product-20.jpg') }}" width="674" height="674" padding-top=100px alt="">
+                  <img loading="lazy" class="h-auto" src="{{Storage::url($product->image)}}" width="674" height="674" padding-top=100px alt="">
                   <a data-fancybox="gallery" href="../client/images/products/product_0.jpg" data-bs-toggle="tooltip" data-bs-placement="left" title="Zoom">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><use href="#icon_zoom" /></svg>
                   </a>

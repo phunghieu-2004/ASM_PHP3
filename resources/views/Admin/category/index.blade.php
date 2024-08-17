@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title')
     Quản lý Danh mục
@@ -36,7 +36,7 @@
                             @endphp
                         @endif
 
-                        <a href="{{ url('admin/category/create') }}" class="btn btn-primary">Thêm mới</a>
+                        <a href="{{route('category.create')}}" class="btn btn-primary">Thêm mới</a>
 
                         <table class="table table-striped">
                             <thead>
@@ -50,18 +50,21 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($category as $category)
+                                @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $category['id'] }}</td>
-                                        <td>{{ $category['name'] }}</td>
-                                        <td>{{ $category['created_at'] }}</td>
-                                        <td>{{ $category['updated_at'] }}</td>
+                                        <td>{{ $item['id'] }}</td>
+                                        <td>{{ $item['name'] }}</td>
+                                        <td>{{ $item['created_at'] }}</td>
+                                        <td>{{ $item['updated_at'] }}</td>
                                         <td>
-                                            <a href="{{ url("admin/category/{$category['id']}/edit") }}"
+                                            <a href="{{route('category.edit',$item)}}"
                                                 class="btn btn-warning">Sửa</a>
-                                            <a href="{{ url("admin/category/{$category['id']}/delete") }}"
-                                                onclick="return confirm('Chắc chắn xóa không?');"
-                                                class="btn btn-danger">Xóa</a>
+                                            <form action="{{route('category.destroy',$item)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger"
+                                                onclick="return confirm('Chắc chắn xóa không?');">Xóa</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

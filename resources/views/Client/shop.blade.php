@@ -85,10 +85,10 @@
               <div class="swiper-container background-img js-swiper-slider" data-settings='{"resizeObserver": true}'>
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <a href="{{route('client.show',$item)}}"><img loading="lazy" src="{{ asset('theme/assets/client/images/products/product_1.jpg') }}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img"></a>
+                    <a href="{{route('client.show',$item)}}"><img loading="lazy" src="{{Storage::url($item->image)}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img"></a>
                   </div><!-- /.pc__img-wrapper -->
                   <div class="swiper-slide">
-                    <a href="{{route('client.show',$item)}}"><img loading="lazy" src="{{ asset('theme/assets/client/images/products/product_1-1.jpg') }}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img"></a>
+                    <a href="{{route('client.show',$item)}}"><img loading="lazy" src="{{Storage::url($item->image)}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img"></a>
                   </div><!-- /.pc__img-wrapper -->
                 </div>
                 <span class="pc__img-prev"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg"><use href="#icon_prev_sm" /></svg></span>

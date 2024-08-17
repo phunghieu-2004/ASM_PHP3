@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Categorie;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -26,7 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         $category = Categorie::query()->pluck('name','id')->all();
-         return view(self::PATH_VIEW.__FUNCTION__,compact('category'));
+        return view(self::PATH_VIEW.__FUNCTION__,compact('category'));
     }
 
     /**
@@ -36,6 +38,14 @@ class ProductController extends Controller
     {
         $data = $request->except('image');
         
+        if($request->hasFile('image')){
+            $data['image'] = Storage::put('products',$request->file('image'));
+        }else{
+            $data['image'] = '';
+        }
+        // dd($data);
+        Product::query()->create($data);
+        return redirect()->route('products.index');
     }
 
     /**
@@ -51,22 +61,35 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view(self::PATH_VIEW.__FUNCTION__,compact('product'));
+        $categories = Categorie::query()->pluck('name','id')->all();
+        return view(self::PATH_VIEW.__FUNCTION__,compact('categories','product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateProductRequest $request, Product $product)
-    {
-        //
+{
+    $data = $request->except('image');
+    if ($request->hasFile('image')) {
+        $data['image'] = Storage::put('products', $request->file('image'));
+        if (!empty($product->image) && Storage::exists($product->image)) {
+            Storage::delete($product->image);
+        }
+    } else {
+        $data['image'] = $product->image;
     }
+
+    $product->update($data);
+    return redirect()->route('products.index');
+}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(string $id)
     {
-        //
+        DB::table('products')->where('id', $id)->delete();
+        return back();
     }
 }

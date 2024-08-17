@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Helper\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,7 +13,9 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+        const TYPE_ADMIN = 'admin';
 
+        const TYPE_USER = 'member';
     /**
      * The attributes that are mass assignable.
      *
@@ -20,9 +24,16 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'address',
+        'phone',
         'password',
+        'email_verified_at',
+        'type',
     ];
 
+    public function carts(){
+        return $this->hasMany(Cart::class, 'user_id', 'id');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,4 +53,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin(){
+        return $this->type == self::TYPE_ADMIN;
+    }
 }

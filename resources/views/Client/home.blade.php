@@ -11,7 +11,7 @@
             <div class="swiper-slide product-card product-card_style8">
                 <div class="pc__img-wrapper pc__img-wrapper_wide2">
                     <a href="{{route('client.show',$item)}}">
-                        <img loading="lazy" src="{{ asset('theme/assets/client/images/home/demo11/product-20.jpg') }}" width="252" height="229"
+                        <img loading="lazy" src="{{Storage::url($item->image)}}" width="252" height="229"
                             alt="" class="pc__img">
                             {{-- {{ asset($product['img_thumbnail']) }} --}}
                     </a>

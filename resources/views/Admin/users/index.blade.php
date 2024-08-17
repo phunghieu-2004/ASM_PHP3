@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title')
     Danh sách User
@@ -17,7 +17,7 @@
                 </div>
                 <div class="white_card_body">
 
-                    <a class="btn btn-primary" href="{{ url('admin/users/create') }}">Thêm mới</a>
+                    <a class="btn btn-primary" href="{{route('users.create')}}">Thêm mới</a>
 
                     @if (isset($_SESSION['status']) && $_SESSION['status'])
                         <div class="alert alert-success">
@@ -35,7 +35,6 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>IMAGE</th>
                                     <th>NAME</th>
                                     <th>EMAIL</th>
                                     <th>TYPE</th>
@@ -46,30 +45,30 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($users as $user)
+                                @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $user['id'] }}</td>
+                                        <td>{{ $item['id'] }}</td>
+                                        <td>{{ $item['name'] }}</td>
+                                        <td>{{ $item['email'] }}</td>
                                         <td>
-                                            <img src="{{ asset($user['avatar']) }}" alt="" width="100px">
-                                        </td>
-                                        <td>{{ $user['name'] }}</td>
-                                        <td>{{ $user['email'] }}</td>
-                                        <td>
-                                            {!!  $user['type'] == 'admin' 
+                                            {!!  $item['type'] == 'admin' 
                                                     ? '<span class="badge bg-primary">admin</span>'
                                                         : '<span class="badge bg-warning">member</span>' !!}
                                         </td>
-                                        <td>{{ $user['created_at'] }}</td>
-                                        <td>{{ $user['updated_at'] }}</td>
+                                        <td>{{ $item['created_at'] }}</td>
+                                        <td>{{ $item['updated_at'] }}</td>
                                         <td>
 
                                             <a class="btn btn-info"
-                                                href="{{ url('admin/users/' . $user['id'] . '/show') }}">Xem</a>
+                                                href="{{route('users.show',$item)}}">Xem</a>
                                             <a class="btn btn-warning"
-                                                href="{{ url('admin/users/' . $user['id'] . '/edit') }}">Sửa</a>
-                                            <a class="btn btn-danger"
-                                                href="{{ url('admin/users/' . $user['id'] . '/delete') }}"
-                                                onclick="return confirm('Chắc chắn xóa không?')">Xóa</a>
+                                                href="{{route('users.edit',$item)}}">Sửa</a>
+                                                <form action="{{route('users.destroy',$item)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger"
+                                                    onclick="return confirm('Chắc chắn xóa không?');">Xóa</button>
+                                                </form>
 
                                         </td>
                                     </tr>

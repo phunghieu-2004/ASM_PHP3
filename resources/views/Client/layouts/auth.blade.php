@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="zxx">
 
-<!-- Mirrored from uomo-html.flexkitux.com/Demo11/shop_cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:00:58 GMT -->
+<!-- Mirrored from uomo-html.flexkitux.com/Demo11/login_register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:01:07 GMT -->
 <head>
 
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -16,13 +16,14 @@
 
   <!-- Stylesheets -->
   @include('client.layouts.partials.css')
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--[if lt IE 9]>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
   <![endif]-->
 
   <!-- Document Title -->
-  <title>Shopping Cart | Uomo eCommerce HTML5 Template</title>
+  <title>Account Signin/Signup | Uomo eCommerce HTML5 Template</title>
 
 </head>
 
@@ -186,7 +187,7 @@
 
       <div class="logo">
         <a href="index.html">
-          <img src="{{ asset('theme/assets/client/images/logo.png') }}" alt="Uomo" class="logo__image d-block">
+          <img src="../images/logo.png" alt="Uomo" class="logo__image d-block">
         </a>
       </div><!-- /.logo -->
 
@@ -410,8 +411,12 @@
   <!-- Header Type 1 -->
   @include('client.layouts.partials.headerdetail')
   <!-- End Header Type 1 -->
-  
-  @yield('content')
+
+  <main>
+    <div class="mb-4 pb-4"></div>
+    @yield('content')
+    @yield('login')
+  </main>
 
   <div class="mb-5 pb-xl-5"></div>
   
@@ -422,7 +427,7 @@
         <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
           <div class="logo">
             <a href="index.html">
-              <img src="{{ asset('theme/assets/client/images/logo.png') }}" alt="Uomo" class="logo__image d-block">
+              <img src="../images/logo.png" alt="Uomo" class="logo__image d-block">
             </a>
           </div><!-- /.logo -->
           <p class="footer-address">1418 River Drive, Suite 35 Cottonhall, CA 9622 United States</p>
@@ -508,7 +513,7 @@
           <div class="mt-4 pt-3">
             <strong class="fw-medium">Secure payments</strong>
             <p class="mt-2">
-              <img loading="lazy" src="{{ asset('theme/assets/client/images/payment-options.png') }}" alt="Acceptable payment gateways">
+              <img loading="lazy" src="../images/payment-options.png" alt="Acceptable payment gateways">
             </p>
           </div>
         </div><!-- /.footer-column -->
@@ -662,7 +667,7 @@
       <div class="cart-drawer-item d-flex position-relative">
         <div class="position-relative">
           <a href="product1_simple.html">
-            <img loading="lazy" class="cart-drawer-item__img" src="{{ asset('theme/assets/client/images/cart-item-1.jpg') }}" alt="">
+            <img loading="lazy" class="cart-drawer-item__img" src="../images/cart-item-1.jpg" alt="">
           </a>
         </div>
         <div class="cart-drawer-item__info flex-grow-1">
@@ -687,7 +692,7 @@
       <div class="cart-drawer-item d-flex position-relative">
         <div class="position-relative">
           <a href="product1_simple.html">
-            <img loading="lazy" class="cart-drawer-item__img" src="{{ asset('theme/assets/client/images/cart-item-2.jpg') }}" alt="">
+            <img loading="lazy" class="cart-drawer-item__img" src="../images/cart-item-2.jpg" alt="">
           </a>
         </div>
         <div class="cart-drawer-item__info flex-grow-1">
@@ -712,7 +717,7 @@
       <div class="cart-drawer-item d-flex position-relative">
         <div class="position-relative">
           <a href="product1_simple.html">
-            <img loading="lazy" class="cart-drawer-item__img" src="{{ asset('theme/assets/client/images/cart-item-3.jpg') }}" alt="">
+            <img loading="lazy" class="cart-drawer-item__img" src="../images/cart-item-3.jpg" alt="">
           </a>
         </div>
         <div class="cart-drawer-item__info flex-grow-1">
@@ -750,7 +755,7 @@
     <div class="modal-dialog modal-fullscreen">
       <div class="sitemap d-flex">
         <div class="w-50 d-none d-lg-block">
-          <img loading="lazy" src="{{ asset('theme/assets/client/images/nav-bg.jpg') }}" alt="Site map" class="sitemap__bg">
+          <img loading="lazy" src="../images/nav-bg.jpg" alt="Site map" class="sitemap__bg">
         </div><!-- /.sitemap__bg w-50 d-none d-lg-block -->
         <div class="sitemap__links w-50 flex-grow-1">
           <div class="modal-content">
@@ -1015,16 +1020,16 @@
                 }'>
                 <div class="swiper-wrapper">
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_1.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_1.jpg" alt="">
                   </div>
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_2.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_2.jpg" alt="">
                   </div>
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_3.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_3.jpg" alt="">
                   </div>
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_4.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_4.jpg" alt="">
                   </div>
                 </div>
                 <div class="swiper-button-prev"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg"><use href="#icon_prev_sm" /></svg></div>
@@ -1135,5 +1140,5 @@
 
 </body>
 
-<!-- Mirrored from uomo-html.flexkitux.com/Demo11/shop_cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:00:58 GMT -->
+<!-- Mirrored from uomo-html.flexkitux.com/Demo11/login_register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:01:07 GMT -->
 </html>

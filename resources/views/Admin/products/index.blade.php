@@ -56,10 +56,9 @@
                                 @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        {{-- <td>
-                                            <img src="{{ asset($product['img_thumbnail']) }}" width="100px" alt="">
-                                        </td> --}}
-                                        <td></td>
+                                        <td>
+                                            <img src="{{Storage::url($item->image)}}" width="100px" alt="">
+                                        </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->description }}</td>

@@ -42,6 +42,19 @@
                 
             </ul>
         </li>
+        <li class>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <div class="icon_menu">
+                    <img src="{{ asset('assets/admin/img/menu-icon/5.svg') }}" alt>
+                </div>
+                <span>Mã giảm giá</span>
+            </a>
+            <ul>
+                <li><a href="{{ url('/list-coupon') }}">Danh sách mã giảm giá</a></li>
+                <li><a href="{{url('/insert-coupon') }}">Quản lý mã giảm giá</a></li>
+                
+            </ul>
+        </li>
         
 
         <li class>

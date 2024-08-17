@@ -1,45 +1,20 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    Cập nhật Người dùng: {{ $product['name'] }}
+    Cập nhật sản phẩm: {{ $product['name'] }}
 @endsection
 
 @section('content')
-    @if (!empty($_SESSION['errors']))
-        <div class="alert alert-warning">
-            <ul>
-                @foreach ($_SESSION['errors'] as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @php
-            unset($_SESSION['errors']);
-        @endphp
-    @endif
-
-    @if (isset($_SESSION['status']) && $_SESSION['status'])
-        <div class="alert alert-success">{{ $_SESSION['msg'] }}</div>
-
-        @php
-            unset($_SESSION['status']);
-            unset($_SESSION['msg']);
-        @endphp
-    @endif
-
-    <form action="{{ url("admin/products/{$product['id']}/update") }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data" method="POST">
+        @csrf
+        @method('PUT')
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
-                    <label for="category_id" class="form-label">Category:</label>
-        
-                    <select name="category_id" id="category_id" class="form-select">
-                        @foreach ($categoryPluck as $id => $name)
-                            <option 
-                                @if ($product['category_id'] == $id)
-                                    selected
-                                @endif
-                                value="{{ $id }}">{{ $name }}</option>
+                    <label for="categories_id" class="form-label">Category:</label>
+                    <select name="categories_id" id="categorie_id" class="form-select">
+                        @foreach ($categories as $id => $name)
+                            <option value="{{ $id }}" @selected($product->categories_id == $id)>{{ $name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -49,20 +24,23 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="img" class="form-label">Image</label>
-                    <input type="file" class="form-control" id="img" placeholder="Enter img" name="img">
-                    <img src="{{ asset($product['img']) }}" width="100px" alt="">
+                    <input type="file" class="form-control" id="image" placeholder="Enter img" name="image" >
+                    <img src="{{ Storage::url($product->image) }}" width="100px" alt="">
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
-                    <label for="overview" class="form-label">Overview:</label>
-                    <textarea class="form-control" id="overview" placeholder="Enter overview" name="overview">{{ $product['overview'] }}</textarea>
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" value="{{ $product['price'] }}"unrequier>
                 </div>
-
+                <div class="mb-3 mt-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" id="description" placeholder="Enter description" name="description">{{ $product['description'] }}</textarea>
+                </div>
                 <div class="mb-3 mt-3">
                     <label for="content" class="form-label">Content:</label>
-                    <textarea class="form-control" id="content" rows="4" placeholder="Enter content" name="content">{{ $product['content'] }}</textarea>
+                    <textarea class="form-control" id="content" placeholder="Enter Content" name="content" un>{{ $product['content'] }}</textarea>
                 </div>
             </div>
         </div>

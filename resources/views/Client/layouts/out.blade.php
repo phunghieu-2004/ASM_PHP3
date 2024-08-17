@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="zxx">
 
-<!-- Mirrored from uomo-html.flexkitux.com/Demo11/shop_cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:00:58 GMT -->
+<!-- Mirrored from uomo-html.flexkitux.com/Demo11/shop_checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:00:58 GMT -->
 <head>
 
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -22,7 +22,7 @@
   <![endif]-->
 
   <!-- Document Title -->
-  <title>Shopping Cart | Uomo eCommerce HTML5 Template</title>
+  <title>Checkout | Uomo eCommerce HTML5 Template</title>
 
 </head>
 
@@ -410,8 +410,11 @@
   <!-- Header Type 1 -->
   @include('client.layouts.partials.headerdetail')
   <!-- End Header Type 1 -->
-  
-  @yield('content')
+
+  <main>
+    <div class="mb-4 pb-4"></div>
+    @yield('content')
+  </main>
 
   <div class="mb-5 pb-xl-5"></div>
   
@@ -662,7 +665,7 @@
       <div class="cart-drawer-item d-flex position-relative">
         <div class="position-relative">
           <a href="product1_simple.html">
-            <img loading="lazy" class="cart-drawer-item__img" src="{{ asset('theme/assets/client/images/cart-item-1.jpg') }}" alt="">
+            <img loading="lazy" class="cart-drawer-item__img" src="../images/cart-item-1.jpg" alt="">
           </a>
         </div>
         <div class="cart-drawer-item__info flex-grow-1">
@@ -687,7 +690,7 @@
       <div class="cart-drawer-item d-flex position-relative">
         <div class="position-relative">
           <a href="product1_simple.html">
-            <img loading="lazy" class="cart-drawer-item__img" src="{{ asset('theme/assets/client/images/cart-item-2.jpg') }}" alt="">
+            <img loading="lazy" class="cart-drawer-item__img" src="../images/cart-item-2.jpg" alt="">
           </a>
         </div>
         <div class="cart-drawer-item__info flex-grow-1">
@@ -712,7 +715,7 @@
       <div class="cart-drawer-item d-flex position-relative">
         <div class="position-relative">
           <a href="product1_simple.html">
-            <img loading="lazy" class="cart-drawer-item__img" src="{{ asset('theme/assets/client/images/cart-item-3.jpg') }}" alt="">
+            <img loading="lazy" class="cart-drawer-item__img" src="../images/cart-item-3.jpg" alt="">
           </a>
         </div>
         <div class="cart-drawer-item__info flex-grow-1">
@@ -750,7 +753,7 @@
     <div class="modal-dialog modal-fullscreen">
       <div class="sitemap d-flex">
         <div class="w-50 d-none d-lg-block">
-          <img loading="lazy" src="{{ asset('theme/assets/client/images/nav-bg.jpg') }}" alt="Site map" class="sitemap__bg">
+          <img loading="lazy" src="../images/nav-bg.jpg" alt="Site map" class="sitemap__bg">
         </div><!-- /.sitemap__bg w-50 d-none d-lg-block -->
         <div class="sitemap__links w-50 flex-grow-1">
           <div class="modal-content">
@@ -1015,16 +1018,16 @@
                 }'>
                 <div class="swiper-wrapper">
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_1.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_1.jpg" alt="">
                   </div>
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_2.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_2.jpg" alt="">
                   </div>
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_3.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_3.jpg" alt="">
                   </div>
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" src="{{ asset('theme/assets/client/images/products/quickview_4.jpg') }}" alt="">
+                    <img loading="lazy" src="../images/products/quickview_4.jpg" alt="">
                   </div>
                 </div>
                 <div class="swiper-button-prev"><svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg"><use href="#icon_prev_sm" /></svg></div>
@@ -1131,9 +1134,18 @@
   <div class="page-overlay"></div><!-- /.page-overlay -->
 
   <!-- External JavaScripts -->
-  @include('client.layouts.partials.js')
+  <script src="js/plugins/jquery.min.js"></script>
+  <script src="js/plugins/bootstrap.bundle.min.js"></script>
+  <script src="js/plugins/bootstrap-slider.min.js"></script>
+  
+  <script src="js/plugins/swiper.min.js"></script>
+  <script src="js/plugins/countdown.js"></script>
+  <script src="js/plugins/jquery.fancybox.js"></script>
+
+  <!-- Footer Scripts -->
+  <script src="js/theme.js"></script>
 
 </body>
 
-<!-- Mirrored from uomo-html.flexkitux.com/Demo11/shop_cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:00:58 GMT -->
+<!-- Mirrored from uomo-html.flexkitux.com/Demo11/shop_checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jun 2024 14:00:58 GMT -->
 </html>

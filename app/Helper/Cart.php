@@ -18,6 +18,7 @@ class Cart{
 
     //them moi sp vao gio hang
     public function add($product,$quantity =1){
+        
         $item =[
             'productId'=>$product->id,
             'name'=>$product->name,
@@ -31,15 +32,28 @@ class Cart{
 
 
     //cap nhat gio hang
+    public function update($id,$qtt){
+        if(isset($this->items[$id])){
+            $this->items[$id]['quantity'] = $qtt;
+            session(['cart'=>$this->items]);
+        }
 
+    }
 
 
     // xoa sp khoi gio hang
-
+    public function delete($id){
+        if(isset($this->items[$id])){
+            unset($this->items[$id]);
+            session(['cart'=>$this->items]);
+        }
+    }
 
 
     //xoa het sp khoi gio hang
-
+        public function clear(){
+            session(['cart'=>null]);
+        }
 
     // pt lay tong tien
     public function getTotalPrice(){

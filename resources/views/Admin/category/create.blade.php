@@ -1,11 +1,11 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title')
     Thêm mới Thể loại
 @endsection
 
 @section('content')
-    @if (!empty($_SESSION['errors']))
+    {{-- @if (!empty($_SESSION['errors']))
         <div class="alert alert-warning">
             <ul>
                 @foreach ($_SESSION['errors'] as $error)
@@ -16,9 +16,11 @@
         @php
             unset($_SESSION['errors']);
         @endphp
-    @endif
+    @endif --}}
 
-    <form action="{{ url('admin/category/store') }}" method="POST">
+    <form action="{{route('category.store')}}" method="POST">
+        @csrf
+        
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
